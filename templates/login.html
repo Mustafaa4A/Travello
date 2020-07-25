@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registeration</title>
+    <style>
+        fieldset {
+            padding-left: 200px;
+        }
+
+        legend {
+            text-align: center;
+        }
+
+        input {
+            width: 300px;
+            height: 35px;
+            background-color: wheat;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        li {
+            padding-bottom: 20px;
+        }
+
+        .errors {
+            color: #fff;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-6">
+            <form action="login" method="POST">
+                {% csrf_token %}
+                <fieldset>
+                    <legend>
+                        <h2>login Now!</h2>
+                    </legend>
+                    {% for message in messages %}
+                    <div style="color: tomato; text-align:center">
+                        <h3>{{message}}</h3>
+                    </div>
+                    {% endfor %}
+                    <ul>
+                        <li><input type="text" name="username" placeholder="Username"></li>
+                        <li><input type="password" name="password" placeholder="Password"></li>
+                        <li><input type="submit" value="Login" style="width: 310px;"></li>
+                    </ul>
+
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
